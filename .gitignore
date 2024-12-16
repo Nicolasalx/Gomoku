@@ -1,0 +1,49 @@
+# ? valgrind
+vgcore.*
+
+# ? obj
+*.o
+
+# ? lib
+*.a
+*.so
+
+# ? executable
+*.out
+unit_tests
+pbrain-gomoku-ai
+liskvork-0.4.2-x86_64-linux-musl
+liskvork-0.4.3-x86_64-linux-musl
+pbrain-back-ai
+pbrain-random-ai
+
+# ? coverage
+*.gcda
+*.gcno
+*.gcov
+
+# ? tmp
+*~
+\#*#
+
+# ? vscode
+.vscode/
+.cache/
+
+# ? compilation database
+compile_commands.json
+compile_commands.events.json
+coding-style-reports.log
+config.ini
+board.log
+pbrain-cpp-template
+pbrain-basic
+pbrain-ai-test-1
+pbrain-montecarlo-bis
+pbrain-defensive
+pbrain-back-ai
+recv_cmd.log
+test_mcts/
+.game_log
+pbrain-gomoku-ai-ref
+build/

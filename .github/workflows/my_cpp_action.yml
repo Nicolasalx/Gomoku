@@ -1,0 +1,61 @@
+name: my_cpp_action
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  check_all:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    container:
+      image: epitechcontent/epitest-docker:latest
+      volumes:
+        - ${{ github.workspace }}:/app
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: check compilation
+        run: |
+          echo "## 🚀 Compilation result" >> $GITHUB_STEP_SUMMARY
+          {
+            set +e
+            make ADDITIONAL_FLAGS="-Werror"
+            if [ $? -ne 0 ]; then
+              echo "- ### Compilation failed ❌" >> $GITHUB_STEP_SUMMARY
+              echo "Compilation failed."
+              exit 1
+            else
+              echo "- ### Compilation succeed ✅" >> $GITHUB_STEP_SUMMARY
+              exit 0
+            fi
+          }
+
+      - name: check binary name
+        run: |
+          if [ ! -f "pbrain-gomoku-ai" ]; then
+            echo "- ### Binary not found: pbrain-gomoku-ai ❌" >> $GITHUB_STEP_SUMMARY
+            exit 1
+          else
+            echo "- ### Binary 'pbrain-gomoku-ai' found ✅" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: install linter
+        run: |
+          sudo apt-get update && \
+          sudo apt-get install -y clang clang-tools clang-tidy bear
+
+      - name: code analyse
+        run: |
+          make code_analyse 2>&1 | tee code_analyse_log.txt
+          {
+            set +e
+            CLANG_TIDY_WARNING=$(grep -c "warning: " code_analyse_log.txt)
+          }
+          if [ "$CLANG_TIDY_WARNING" -ne 0 ]; then
+            echo "::warning::$CLANG_TIDY_WARNING warning detected !"
+          fi
