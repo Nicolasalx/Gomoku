@@ -2,54 +2,54 @@
 
 ## Introduction
 
-Le **Gomoku** (aussi appelé Wuzi Qi, Slope, Darpion ou Five in a Row) est un jeu à deux joueurs joué sur un plateau de 20x20. Le but est d’aligner 5 pierres de manière consécutive, que ce soit horizontalement, verticalement ou en diagonale. Ce projet vise à développer un bot capable de jouer à ce jeu avec une intelligence artificielle performante.
+**Gomoku** (also known as Wuzi Qi, Slope, Darpion, or Five in a Row) is a two-player game played on a 20x20 board. The objective is to align 5 consecutive stones, either horizontally, vertically, or diagonally. This project aims to develop a bot capable of playing this game with an advanced artificial intelligence.
 
 ![image](https://github.com/user-attachments/assets/94d72fc6-041c-4666-90a1-5eed1193bde4)
 
-## Explication du projet
+## Project Overview
 
-Le but de ce projet est de créer un bot pour le jeu Gomoku en utilisant un algorithme de votre choix pour l'intelligence artificielle, tout en respectant un protocole de communication spécifique (au moins la partie "commandes obligatoires"). L'accent est mis sur l’efficacité de l'IA, qui sera évaluée principalement sur sa performance en jeu.
+The goal of this project is to create a bot for the game Gomoku using an artificial intelligence algorithm of your choice, while adhering to a specific communication protocol (at least the "mandatory commands" section). The focus is on the efficiency of the AI, which will be evaluated mainly on its performance in gameplay.
 
-L'algorithme peut être un **Min-Max**, **Monte Carlo**, **Machine Learning**, ou tout autre algorithme de votre choix. L’objectif principal est d’optimiser l’IA pour maximiser ses victoires contre d’autres bots.
+The algorithm can be a **Min-Max**, **Monte Carlo**, **Machine Learning**, or any other algorithm of your choice. The primary objective is to optimize the AI to maximize its victories against other bots.
 
-## Règles du jeu
+## Game Rules
 
-Gomoku est un jeu à deux joueurs joué sur un plateau de 20x20. Les règles sont simples :
-- Les joueurs placent chacun à leur tour une pierre sur le plateau.
-- Le premier joueur à aligner 5 pierres consécutives (horizontalement, verticalement ou en diagonale) gagne la partie.
-- Le jeu se termine dès qu’un joueur remporte la partie.
+Gomoku is a two-player game played on a 20x20 board. The rules are simple:
+- Players take turns placing a stone on the board.
+- The first player to align 5 consecutive stones (horizontally, vertically, or diagonally) wins the game.
+- The game ends as soon as a player wins.
 
 ## Monte-Carlo Tree Search (MCTS)
 
-L'algorithme choisi pour ce projet est le **Monte-Carlo Tree Search (MCTS)**, qui est largement utilisé dans les jeux de stratégie pour prendre des décisions en temps réel. Cet algorithme se décompose en quatre phases principales :
+The algorithm chosen for this project is **Monte-Carlo Tree Search (MCTS)**, which is widely used in strategy games for making decisions in real time. The algorithm is broken down into four main phases:
 
-1. **Sélection** : Le processus consiste à choisir les noeuds du jeu à explorer en fonction d'un critère d'optimisation.
-2. **Expansion** : De nouveaux noeuds sont ajoutés à l'arbre de recherche.
-3. **Simulation** : Une simulation est effectuée à partir du noeud nouvellement ajouté pour évaluer le résultat possible.
-4. **Backpropagation** : Les résultats de la simulation sont remontés dans l’arbre pour ajuster les valeurs des noeuds parents.
+1. **Selection**: The process of selecting game nodes to explore based on an optimization criterion.
+2. **Expansion**: New nodes are added to the search tree.
+3. **Simulation**: A simulation is run from the newly added node to evaluate the possible outcome.
+4. **Backpropagation**: The results of the simulation are propagated up the tree to adjust the values of parent nodes.
 
 ![image](https://github.com/user-attachments/assets/4d54d307-dc56-4f24-81a4-c9c836a50681)
 
-## Résultats
+## Results
 
-Après avoir joué plus d'une centaine de parties contre des humains, l'IA a remporté **100%** des matchs testés.
+After playing over a hundred games against humans, the AI won **100%** of the tested matches.
 
-Voici une vidéo montrant un humain jouant contre l'IA :  
+Here is a video showing a human playing against the AI:  
 
-[Vidéo de l'IA en action](https://github.com/user-attachments/assets/0d619c9c-64dc-436e-ad36-f227ca487cd1)
+[Video of AI in Action](https://github.com/user-attachments/assets/0d619c9c-64dc-436e-ad36-f227ca487cd1)
 
-## Contraintes techniques
+## Technical Constraints
 
-- **Temps de jeu** : 5 secondes maximum par coup.
-- **Mémoire** : 70 MB de mémoire par bot.
-- **Mouvement interdit** : Un coup interdit entraîne une défaite immédiate.
-- **Bibliothèques interdites** : L’utilisation de bibliothèques interdites (comme TensorFlow ou scikit-learn) entraîne l’élimination du projet.
-- **Langage** : Le programme doit être compilé sous Linux avec un `Makefile` (si compilation nécessaire), en utilisant uniquement les bibliothèques standard.
+- **Move Time**: 5 seconds maximum per move.
+- **Memory**: 70 MB of memory per bot.
+- **Forbidden Move**: A forbidden move results in an immediate defeat.
+- **Forbidden Libraries**: The use of forbidden libraries (such as TensorFlow or scikit-learn) results in disqualification.
+- **Language**: The program must be compiled on Linux using a `Makefile` (if compilation is necessary), and it should only use standard libraries.
 
-## Structure du projet
+## Project Structure
 
-Le projet est conçu pour être compilé et testé automatiquement contre d'autres programmes dans le cadre d'une évaluation de la performance de l'IA.
+The project is designed to be compiled and automatically tested against other programs as part of an AI performance evaluation.
 
 ## Conclusion
 
-Ce projet a permis de développer un bot de jeu Gomoku performant, en utilisant l'algorithme **Monte-Carlo Tree Search (MCTS)** pour prendre des décisions stratégiques en temps réel. L'IA a été optimisée pour jouer à un niveau compétitif, en évaluant les coups possibles et en sélectionnant les meilleurs à chaque tour. Après avoir été testée dans plus d'une centaine de parties contre des joueurs humains, l'IA a remporté **100%** des matchs, démontrant ainsi son efficacité et sa capacité à rivaliser contre des bots de niveaux faibles à moyens.
+This project successfully developed a performant Gomoku bot, using the **Monte-Carlo Tree Search (MCTS)** algorithm to make strategic decisions in real-time. The AI was optimized to play at a competitive level by evaluating possible moves and selecting the best ones at each turn. After being tested in over a hundred games against human players, the AI won **100%** of the matches, demonstrating its efficiency and ability to compete against low-to-medium level bots.
